@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    android:background="#FAFAFA">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:elevation="2dp" />
+
+    <!-- Username Input -->
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Username"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:elevation="2dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"/>
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:elevation="2dp"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"/>
+
+    <!-- Register Button -->
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#3498DB"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:padding="14dp"
+        android:elevation="4dp" />
+
+</LinearLayout>

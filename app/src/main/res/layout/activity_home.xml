@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".HomeActivity">
+
+    <!-- App Heading with Custom Font and Shadow -->
+    <TextView
+        android:id="@+id/tvHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="sans-serif-condensed"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="6"
+        android:text="Expense Tracker"
+        android:textColor="#FFFFFF"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Button for Tax Breakdown -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnTaxBreakdownCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvHeading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btnTaxBreakdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tax Breakdown"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:backgroundTint="#3498DB"
+                android:layout_marginStart="16dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Button for Expense Reports -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnExpenseReportsCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/btnTaxBreakdownCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btnExpenseReports"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expense Reports"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:backgroundTint="#2ECC71"
+                android:layout_marginStart="16dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Button for Expense Breakdown -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnExpenseBreakdownCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/btnExpenseReportsCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btnExpenseBreakdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expense Breakdown"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:backgroundTint="#E74C3C"
+                android:layout_marginStart="16dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- EditText for adding money -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnAddMoneyCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/btnExpenseBreakdownCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/Des"
+                android:layout_width="315dp"
+                android:layout_height="98dp"
+                android:backgroundTint="#FFFFFF"
+                android:inputType="numberDecimal"
+                android:padding="16dp"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Button for adding money -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnSubmitMoneyCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/btnAddMoneyCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
