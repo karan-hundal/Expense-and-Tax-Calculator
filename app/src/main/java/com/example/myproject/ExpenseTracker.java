@@ -1,10 +1,13 @@
 package com.example.myproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -14,12 +17,11 @@ import java.util.ArrayList;
 
 public class ExpenseTracker extends AppCompatActivity {
 
-    // UI Components
-    private EditText categoryInput, expenseInput, sourceInput, earningInput;
-    private Button addExpenseBtn, addEarningBtn, reportBtn;
-    private ListView transactionList;
 
-    // Data Components
+    private EditText categoryInput, expenseInput, sourceInput, earningInput;
+    private Button addExpenseBtn, addEarningBtn;
+    private ListView transactionList;
+    private ImageButton backButton;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> transactions;
     private TransactionDatabaseHelper transactionDatabaseHelper;
@@ -31,19 +33,21 @@ public class ExpenseTracker extends AppCompatActivity {
         setContentView(R.layout.activity_expense_tracker);
 
 
-        username = getIntent().getStringExtra("username");
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        username = sharedPreferences.getString("username", null);
 
+        if (username == null) {
+            // If no username is found, redirect to the login screen
+            Intent loginIntent = new Intent(ExpenseTracker.this, MainActivity.class);
+            startActivity(loginIntent);
+            finish();
+        } else {
 
-        transactionDatabaseHelper = new TransactionDatabaseHelper(this);
-
-
-        initializeUI();
-
-
-        loadUserTransactions();
-
-
-        setButtonListeners();
+            transactionDatabaseHelper = new TransactionDatabaseHelper(this);
+            initializeUI();
+            loadUserTransactions();
+            setButtonListeners();
+        }
     }
 
     private void initializeUI() {
@@ -53,8 +57,8 @@ public class ExpenseTracker extends AppCompatActivity {
         earningInput = findViewById(R.id.earning_input);
         addExpenseBtn = findViewById(R.id.add_expense_btn);
         addEarningBtn = findViewById(R.id.add_earning_btn);
-        reportBtn = findViewById(R.id.report_btn);
         transactionList = findViewById(R.id.transaction_list);
+        backButton = findViewById(R.id.back_button);
     }
 
     private void loadUserTransactions() {
@@ -64,18 +68,17 @@ public class ExpenseTracker extends AppCompatActivity {
     }
 
     private void setButtonListeners() {
-        // Add Expense
+
         addExpenseBtn.setOnClickListener(v -> handleTransaction("Expense", categoryInput, expenseInput));
 
-        // Add Earning
+
         addEarningBtn.setOnClickListener(v -> handleTransaction("Earning", sourceInput, earningInput));
 
-        // Navigate to Summary Activity
-        reportBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(ExpenseTracker.this, SummaryActivity.class);
-            intent.putExtra("username", username);
-            startActivity(intent);
-        });
+
+
+
+
+        backButton.setOnClickListener(v -> onBackPressed());
     }
 
     private void handleTransaction(String type, EditText inputField1, EditText inputField2) {
