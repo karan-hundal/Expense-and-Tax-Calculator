@@ -17,7 +17,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // Initialize buttons and set click listeners
         Button btnTaxBreakdown = findViewById(R.id.btnTaxBreakdown);
-        Button btnExpenseReports = findViewById(R.id.btnExpenseReports);
+
         Button btnExpenseBreakdown = findViewById(R.id.btnExpenseBreakdown);
 
         TextView desTextView = findViewById(R.id.Des);
@@ -28,11 +28,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        btnExpenseReports.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) {
-                desTextView.setText("Access your expense reports, including earnings and savings.");
-            }
-        });
+
 
         btnExpenseBreakdown.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
@@ -47,22 +43,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        btnExpenseReports.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this,SummaryActivity.class);
-                startActivity(intent);
-                double totalExpenses = getSharedPreferences("ExpenseTrackerPrefs", MODE_PRIVATE).getFloat("totalExpenses", 0);
-                double totalEarnings = getSharedPreferences("ExpenseTrackerPrefs", MODE_PRIVATE).getFloat("totalEarnings", 0);
-                double totalTax = getSharedPreferences("TaxBreakPrefs", MODE_PRIVATE).getFloat("totalTax", 0);
 
-                intent.putExtra("totalExpenses", totalExpenses);
-                intent.putExtra("totalEarnings", totalEarnings);
-                intent.putExtra("taxAmount", totalTax);
-
-                startActivity(intent);
-            }
-        });
 
 
         btnExpenseBreakdown.setOnClickListener(new View.OnClickListener() {
