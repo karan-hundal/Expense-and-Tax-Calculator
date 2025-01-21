@@ -19,7 +19,9 @@
         android:elevation="4dp"
         android:padding="8dp" />
 
-    <!-- Expense Category Input -->
+
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,19 +30,19 @@
         android:textColor="#333333"
         android:layout_marginBottom="8dp"/>
 
+    <!-- Expense Amount Input -->
     <EditText
         android:id="@+id/category_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Category"
-        android:background="@android:color/white"
-        android:textColor="#333333"
-        android:padding="12dp"
-        android:elevation="2dp"
         android:layout_marginBottom="16dp"
-        android:inputType="text" />
+        android:background="@android:color/white"
+        android:elevation="2dp"
+        android:hint="Enter Category"
+        android:inputType="text"
+        android:padding="12dp"
+        android:textColor="#333333" />
 
-    <!-- Expense Amount Input -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -140,16 +142,5 @@
         android:background="@android:color/white"/>
 
     <!-- Summary Button -->
-    <Button
-        android:id="@+id/report_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Calculate"
-        android:backgroundTint="#F39C12"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp"
-        android:elevation="4dp"/>
 
 </LinearLayout>
